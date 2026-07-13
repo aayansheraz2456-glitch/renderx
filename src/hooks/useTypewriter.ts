@@ -14,8 +14,8 @@ export function useTypewriter(text: string, speed = 38, startDelay = 600) {
     const timeoutId = setTimeout(() => {
       intervalId = setInterval(() => {
         if (currentIndex < text.length) {
-          setDisplayed((prev) => prev + text.charAt(currentIndex));
           currentIndex++;
+          setDisplayed(text.slice(0, currentIndex));
         } else {
           setDone(true);
           clearInterval(intervalId);
