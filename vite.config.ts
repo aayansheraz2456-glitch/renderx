@@ -4,7 +4,8 @@ import tailwindcss from '@tailwindcss/vite'
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: "/renderx/",
+  // GitHub Pages serves from /renderx/; Vercel and local dev serve from the root
+  base: process.env.GITHUB_ACTIONS ? '/renderx/' : '/',
   plugins: [
     react(),
     tailwindcss(),
